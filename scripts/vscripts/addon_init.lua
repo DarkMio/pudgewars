@@ -1,6 +1,7 @@
-print('\n\nLoading PW modules...')
+print('\n\naddon_init...')
 
 function Dynamic_Wrap( mt, name )
+    print("Dynamic_Wrap")
     if Convars:GetFloat( 'developer' ) == 1 then
         local function w(...) return mt[name](...) end
         return w
@@ -35,11 +36,11 @@ end
 -- loadModule('util')         -- Utilitiy functions
 -- loadModule('json')         -- Json Library
 -- loadModule('smjs')       -- Interface to D2Ware / sm.js
--- loadModule('frota')        -- Main frota framework
--- loadModule('gamemodes')    -- Gamemode framework and small gamemodes/addons
+loadModule('main')        -- Main pw framework
+loadModule('gamemodes')    -- Gamemode framework and small gamemodes/addons
 
--- -- Include gamemodes
--- loadModule('gamemodes/ctftheflag')
+-- Include gamemodes
+loadModule('gamemode/pudgewars')
 -- loadModule('gamemodes/dorh')
 -- loadModule('gamemodes/invokerwars')
 -- loadModule('gamemodes/kaolinwars')
@@ -63,13 +64,13 @@ end
 
 if totalErrors == 0 then
     -- No loading issues
-    print('Loaded Frota modules successfully!\n')
+    print('Loaded Pudge Wars modules successfully!\n')
 elseif totalErrors == 1 then
     -- One loading error
-    print('1 Frota module failed to load!\n')
+    print('1 Pudge Wars module failed to load!\n')
 else
     -- More than one loading error
-    print(totalErrors..' Frota modules failed to load!\n')
+    print(totalErrors..' Pudge Wars modules failed to load!\n')
 end
 
 
